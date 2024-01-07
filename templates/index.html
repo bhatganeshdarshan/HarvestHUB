@@ -8,36 +8,44 @@
 </head>
 <body>
     <form method="post" action="/crop_prediction">
-  <div class="mb-3">
-    <label for="Nitrogen" class="form-label">Nitrogen</label>
-    <input type="number" class="form-control" id="Nitrogen" aria-describedby="emailHelp">
-  </div>
-  <div class="mb-3">
-    <label for="Phosphorus" class="form-label">Phosphorus</label>
-    <input type="number" class="form-control" id="Phosphorous" aria-describedby="emailHelp">
-  </div>
-  <div class="mb-3">
-    <label for="Potassium" class="form-label">Potassium</label>
-    <input type="number" class="form-control" id="Potassium" aria-describedby="emailHelp">
-  </div>
-  <div class="mb-3">
-    <label for="Temperature" class="form-label">Temperature</label>
-    <input type="number" class="form-control" id="Temperature" aria-describedby="emailHelp">
-  </div>
-  <div class="mb-3">
-    <label for="Humidity" class="form-label">Humidity</label>
-    <input type="number" class="form-control" id="Humidity" aria-describedby="emailHelp">
-  </div>
-  <div class="mb-3">
-    <label for="Rainfall" class="form-label">Rainfall</label>
-    <input type="number" class="form-control" id="Rainfall" aria-describedby="emailHelp">
-  </div>
-  <div class="mb-3">
-    <label for="pH" class="form-label">pH</label>
-    <input type="number" class="form-control" id="pH" aria-describedby="emailHelp">
-  </div>
+        <div class="mb-3">
+            <label for="Nitrogen" class="form-label">Nitrogen</label>
+            <input type="number" class="form-control" id="Nitrogen" name="Nitrogen">
+        </div>
+        <div class="mb-3">
+            <label for="Phosphorous" class="form-label">Phosphorus</label>
+            <input type="number" class="form-control" id="Phosphorous" name="Phosphorous">
+        </div>
+        <div class="mb-3">
+            <label for="Potassium" class="form-label">Potassium</label>
+            <input type="number" class="form-control" id="Potassium" name="Potassium">
+        </div>
+        <div class="mb-3">
+            <label for="Temperature" class="form-label">Temperature</label>
+            <input type="number" class="form-control" id="Temperature" name="Temperature">
+        </div>
+        <div class="mb-3">
+            <label for="Humidity" class="form-label">Humidity</label>
+            <input type="number" class="form-control" id="Humidity" name="Humidity">
+        </div>
+        <div class="mb-3">
+            <label for="Rainfall" class="form-label">Rainfall</label>
+            <input type="number" class="form-control" id="Rainfall" name="Rainfall">
+        </div>
+        <div class="mb-3">
+            <label for="pH" class="form-label">pH</label>
+            <input type="number" class="form-control" id="pH" name="pH">
+        </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    {% if result %}
+		<div class="card bg-light" style="width: 18rem;">
+		  <div class="card-body">
+			<h5 class="card-title">Recommend Crop for cultivation is:</h5>
+			<p class="card-text">{{ result }}</p>
+		  </div>
+		</div>
+	   {% endif %}
 </body>
 </html>
