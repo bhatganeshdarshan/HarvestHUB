@@ -7,6 +7,12 @@
     <title>Crop Prediction Model</title>
 </head>
 <body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+          <img src="{{url_for('static', filename='/Image/wheat.png')}}" width="30" height="30" class="d-inline-block align-top" alt="">
+          HarvestHUB
+        </a>
+      </nav>
     <form method="post" action="/crop_prediction">
         <div class="mb-3">
             <label for="Nitrogen" class="form-label">Nitrogen</label>
