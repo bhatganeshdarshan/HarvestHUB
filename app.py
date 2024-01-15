@@ -42,6 +42,3 @@ def result_page():
     result = request.args.get('result')
     crop = request.args.get('crop')
     return render_template('result_page.html', result=result, crop=crop)
-
-if __name__ == "__main__":
-    app.run(debug=True)
