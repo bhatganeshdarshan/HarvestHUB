@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .result-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 300px;
+        }
+    </style>
+    <title>Result Page</title>
+</head>
+<body>
+    <div class="hero">
+        <div class="result-container">
+            <h3 class="text-center mb-4">Crop Recommendation Result</h3>
+            <div class="card bg-light mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Recommended Crop:</h5>
+                    <img src="{{ url_for('static', filename='/Image/crops/' + crop + '.jpeg') }}" width="220" height="160" class="d-inline-block align-top" alt="">
+                </div>
+            </div>
+            <div class="card bg-light mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Result:</h5>
+                    <p class="card-text">{{ result }}</p>
+                </div>
+            </div>
+            <a href="{{ url_for('index') }}" class="btn btn-primary">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>

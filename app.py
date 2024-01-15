@@ -1,11 +1,8 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect, url_for
 import numpy as np
-import pandas as pd
 import pickle
 
 prediction_model = pickle.load(open("prediction_model.pkl", "rb"))
-df = pd.read_csv("crop_npk_dataset_final.csv")
-df = df.drop('label', axis=1)
 
 app = Flask(__name__)
 
@@ -13,8 +10,7 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-
-@app.route("/crop_prediction",methods=['POST'])
+@app.route("/crop_prediction", methods=['POST'])
 def predict():
     N = request.form['Nitrogen']
     P = request.form['Phosphorous']
@@ -38,11 +34,14 @@ def predict():
         result = f"{crop} is the best crop to cultivate"
     else:
         result = "Could not find any suitable crops for this data"
-    return render_template('index.html',result = result)
 
+    return redirect(url_for('result_page', result=result, crop=crop))
 
+@app.route('/result_page')
+def result_page():
+    result = request.args.get('result')
+    crop = request.args.get('crop')
+    return render_template('result_page.html', result=result, crop=crop)
 
-
-# python main
 if __name__ == "__main__":
     app.run(debug=True)
