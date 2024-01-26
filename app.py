@@ -1,5 +1,4 @@
 from flask import Flask, request, render_template, redirect, url_for
-import numpy as np
 import pickle
 
 prediction_model = pickle.load(open("prediction_model.pkl", "rb"))
